@@ -19,7 +19,7 @@
 
   <!-- Pull to refresh -->
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
+    <ion-refresher-content refreshingSpinner="circles"></ion-refresher-content>
   </ion-refresher>
 
   <!-- Error Dialog. -->
@@ -45,7 +45,7 @@
     feedPostID = "{{feed.feedPostID}}"
     (onPostClick)="gotoDetailPost($event)">
   </app-post>
-  <ion-infinite-scroll (ionInfinite)="loadMore($event)" *ngIf="canLoad">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)" *ngIf="canLoad" >
+    <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </ion-content>

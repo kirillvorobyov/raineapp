@@ -41,7 +41,9 @@ export class TabLoginPage {
 
   presentLoading() {
     let loader = this.loadingController.create({
-      content: `<div class='app-spinner'></div>`,
+      // content: `<div class='app-spinner'></div>`,
+      content: `Please wait...`,
+      spinner: 'bubbles',
       dismissOnPageChange: true //very important.
     });
 

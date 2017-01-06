@@ -44,7 +44,9 @@ export class SearchPage {
   loadSearchResults() {
     //A Local variable for configuring our loadingController
     let loader = this.loadingController.create({
-      content: `<div class='app-spinner'></div>`
+      // content: `<div class='app-spinner'></div>`
+      content: `Please wait...`,
+      spinner: 'bubbles'
     });
 
     // For Debugging

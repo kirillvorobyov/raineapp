@@ -26,8 +26,9 @@
 // Both iOS and MD colors can be further customized if colors
 // are different per mode.
 
+
 $colors: (
-  primary:    #387ef5,
+  primary:    #00BCD4,
   // primary :   #34329a,
   secondary:  #0957d7,
   danger:     #ff0000,
@@ -104,3 +105,8 @@ $toolbar-md-title-font-size : 2.0rem;
 $font-family-md-base: "Montserrat Regular";
 $font-family-ios-base: "Montserrat Regular";
 $font-family-wp-base: "Montserrat Regular";
+
+$loading-ios-spinner-bubbles-color: #00BCD4;
+$loading-md-spinner-bubbles-color: #00BCD4;
+$loading-wp-spinner-bubbles-color: #00BCD4;
+

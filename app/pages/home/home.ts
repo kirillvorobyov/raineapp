@@ -75,7 +75,10 @@ export class HomePage {
 
     public loadFeed(infiniteScroll) {
         let loader = this.loadingController.create({
-            content: `<div class='app-spinner'></div>`
+            // content: `<div class='app-spinner'></div>`
+            content: `Please wait...`,
+            spinner: 'bubbles'
+
         });
         if (!infiniteScroll) {
             loader.present();
@@ -123,7 +126,9 @@ export class HomePage {
 
     public loadCategoryPosts(infiniteScroll) {
         let loader = this.loadingController.create({
-            content: `<div class='app-spinner'></div>`
+            // content: `<div class='app-spinner'></div>`
+            content: `Please wait...`,
+            spinner: 'bubbles'
         });
         if (!infiniteScroll) {
             loader.present();
