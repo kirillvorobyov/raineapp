@@ -5,7 +5,8 @@ import {ImagePreloader} from '../../attribute-directives/image-preloader';
 @Component({
     selector: 'post',
     template: `<div class="single-post">
-    <img src="{{postImage}}" class="feed-image">
+    <!--<img src="{{postImage}}" class="feed-image" mg-img-preloader="{{postImage}}">-->
+    <div class="feed-image" [ngStyle]="getStyleSinglePost(postImage)" mg-img-preloader="{{postImage}}" ></div>
     <div class="app-feed-title">
       <h1 class="primary-font bold-weight post-title animated fadeInUp" [innerHTML]="postTitle"></h1>
       <!--<h6 class="light-weight animated fadeInDown">{{postCommentCount}} Comments | {{postNumberOfLikes}} likes | {{postNumberOfShares}} Shares</h6>-->
@@ -42,7 +43,13 @@ export class SinglePostComponent {
     @Input() postNumberOfShares: number = 29;
     @Input() postNumberOfLikes: number = 2;
 
-
+    getStyleSinglePost(postImage) {
+      console.log('~~~~postImage', postImage);
+        let myStyles = {
+            'background': 'url(' + postImage + ')  center center / cover no-repeat',
+        };
+        return myStyles;
+    }
     PresentActionSheet() {
         let actionSheet = this.actionSheetCtrl.create({
             title: 'Where to share: ' + this.postTitle,

@@ -24,6 +24,7 @@ export class ImagePreloader implements OnInit {
     this.downloadingImage.onload = () => { //Once image is completed, console.log confirmation and switch our host attribute
       console.log('image downloaded');
       this.finalImage = this.targetSource;  //do the switch :D
+      console.log('~~~~~', this.finalImage)
     }
     // Assign the src to that of some_remote_image_url. Since its an Image Object the
     // download would start immediately in the background
