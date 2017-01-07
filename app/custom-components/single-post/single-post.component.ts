@@ -1,4 +1,5 @@
 import {Component, Input, Output} from '@angular/core';
+import { SocialSharing } from 'ionic-native';
 import {ActionSheetController} from 'ionic-angular';
 import {ImagePreloader} from '../../attribute-directives/image-preloader';
 
@@ -51,12 +52,22 @@ export class SinglePostComponent {
         return myStyles;
     }
     PresentActionSheet() {
-        let actionSheet = this.actionSheetCtrl.create({
+
+    SocialSharing.share(this.postContent, this.postTitle, null, this.postImage).then(() => {
+      // Success!
+      console.log('Success');
+    }).catch((err) => {
+      // Error!
+      console.log('Error', err);
+    });
+
+        /*let actionSheet = this.actionSheetCtrl.create({
             title: 'Where to share: ' + this.postTitle,
             buttons: [{
                 text: ' Facebook',
                 handler: () => {
                     console.log('Share Clicked');
+                    window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null , null , function() {console.log('share ok')}, function(errormsg){console.log(errormsg)})
                 }
             },
                 {
@@ -66,6 +77,6 @@ export class SinglePostComponent {
                     }
                 }]
         });
-        actionSheet.present();
+        actionSheet.present(); */
     }
 }

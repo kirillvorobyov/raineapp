@@ -43,9 +43,7 @@ export class HomePage {
         this.loading = loadingController;
         menu.enable(true, 'sidebarMenu');
 
-    }
 
-    ionViewWillEnter() {
         this.pageNum = 1;
         this.feedData = [];
         this.CategoryID = this.params.get("CategoryID");
@@ -55,6 +53,18 @@ export class HomePage {
         } else {
             this.loadFeed(false);
         }
+    }
+
+    ionViewWillEnter() {
+        //this.pageNum = 1;
+        //this.feedData = [];
+        //this.CategoryID = this.params.get("CategoryID");
+        //this.CategoryName = this.params.get("CategoryName");
+        //if (this.CategoryID) {
+        //    this.loadCategoryPosts(false)
+        //} else {
+        //    this.loadFeed(false);
+        //}
     }
 
     loadMore(infiniteScroll) {
@@ -75,9 +85,9 @@ export class HomePage {
 
     public loadFeed(infiniteScroll) {
         let loader = this.loadingController.create({
-            // content: `<div class='app-spinner'></div>`
-            content: `Please wait...`,
-            spinner: 'bubbles'
+            content: `<div class='app-spinner'></div>`
+            //content: `Please wait...`,
+            //spinner: 'bubbles'
 
         });
         if (!infiniteScroll) {
@@ -89,7 +99,7 @@ export class HomePage {
                 for (var i = 0; i < data[0].length; i++) {
                     let tmpImg;
                     try {
-                        tmpImg = data[0][i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
+                        tmpImg = data[0][i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium_large.source_url
                     } catch (e) {
                         tmpImg = ""
                         console.warn(e)
@@ -126,9 +136,9 @@ export class HomePage {
 
     public loadCategoryPosts(infiniteScroll) {
         let loader = this.loadingController.create({
-            // content: `<div class='app-spinner'></div>`
-            content: `Please wait...`,
-            spinner: 'bubbles'
+            content: `<div class='app-spinner'></div>`
+            //content: `Please wait...`,
+            //spinner: 'bubbles'
         });
         if (!infiniteScroll) {
             loader.present();
@@ -139,7 +149,7 @@ export class HomePage {
                 for (var i = 0; i < data[0].length; i++) {
                     let tmpImg;
                     try {
-                        tmpImg = data[0][i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
+                        tmpImg = data[0][i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium_large.source_url
                     } catch (e) {
                         tmpImg = ""
                         console.warn(e)
